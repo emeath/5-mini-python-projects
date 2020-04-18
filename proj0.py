@@ -34,31 +34,43 @@ def main():
     print("3 \t - \t determinar quantidade de lados (1 a qualquer número Natural, exceto 0 -> N*)")
     print("-1 \t - \t para encerrar a aplicação")
 
-    comando = int(input("\nComando: "))
-    if comando == 1:
-      valor = rolarDado(6)
+    # Validar input para que seja um inteiro
+    try:
+      comando = int(input("\nComando: "))
+      comandoValido = True
+   
+    # Exceção levantada quando int(input()) recebe um valor inapropriado
+    #   por exemplo, neste caso em específico, um char.
+    except ValueError:
+      print("\n Por favor, digite um valor inteiro como comando.")
+      comandoValido = False
 
-    elif comando == 2:
-      valor = rolarDado(20)
+    if comandoValido == True:
 
-    elif comando == 3:
-      nLados = int(input("\nPor gentileza, determine a quantidade de lados do dado: "))
-      valor = rolarDado(nLados)
+      if comando == 1:
+        valor = rolarDado(6)
 
-    # Caso o usuário deseje finalizar a aplicação
-    elif comando == -1:
-      print("\nA aplicação \"Simulador de dado\" será encerrada.\n")
-      executando = False
+      elif comando == 2:
+        valor = rolarDado(20)
 
-    # Caso de comando desconhecido
-    else:
-      print("Este comando não é reconhecido nessa aplicação.")
-      print("Comandos válidos são: < 1 >, < 2 >, < 3 > e < -1 >.")
-      print("Aplicação será encerrada.")
-      executando = False
+      elif comando == 3:
+        nLados = int(input("\nPor gentileza, determine a quantidade de lados do dado: "))
+        valor = rolarDado(nLados)
 
-    print("\nO dado foi rolado e a face virada para cima foi...")
-    print("valor: %d" % valor)
+      # Caso o usuário deseje finalizar a aplicação
+      elif comando == -1:
+        print("\nA aplicação \"Simulador de dado\" será encerrada.\n")
+        executando = False
+
+      # Caso de comando desconhecido
+      else:
+        print("\nEste comando não é reconhecido nessa aplicação.")
+        print("Comandos válidos são: < 1 >, < 2 >, < 3 > e < -1 >.")
+        print("Aplicação será encerrada.")
+        executando = False
+
+      print("\nO dado foi rolado e a face virada para cima foi...")
+      print("valor: %d" % valor)
 
 # Invoca a função principal
 main()
