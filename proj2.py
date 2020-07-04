@@ -2,7 +2,7 @@
 #
 # Projeto 2 - Mad Libs Generator
 #
-# Objetivo: computador sorteia um número e o usuário deve adivinha-lo
+# Objetivo: informar adjetivos e substantivos para gerar uma história com esses dados
 #
 # Inspired by Summer Son’s Mad Libs project with Javascript.
 #
